@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Title:</h3><br>
+
+<hr/>
+
+
+<form method="post">
+    {%csrf_token %}
+    <H2>Files here</H2>
+    {{form.as_p}}
+    <input type ="submit" value="extract">
+</form>
+
+{%for i in comments%}
+<p><strong>{{i.source_name}}:</strong> {{i.source_file}}</p>
+{%endfor %}
+
+{% if counter > 1 %}
+    <form action = "" method = "get">
+        <label for="your_name">Your name: </label>
+        <input id="your_name" type="text" name="your_name">
+        <input type="submit" value="OK">
+    </form>
+{% endif %}
+</body>
+</html>
